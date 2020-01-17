@@ -1,13 +1,13 @@
-// This object will allow us to
-// easily convert numbers into US dollar values
-import React from 'react';
+import React from 'react'
+import './Total.css'
 
-const total = Object.keys(this.state.selected).reduce(
-    (acc, curr) => acc + this.state.selected[curr].cost,
-    0
-  );
-
-const USCurrencyFormat = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD'
-});
+export default function total(props) {
+  const { selected } = props;
+  const total = Object.keys(selected).reduce(
+    (acc, curr) => acc + this.state.selected[curr].cost, 0)
+  return (
+    <div className= "summary__total__value">
+      {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(total)}
+    </div>
+  )
+}

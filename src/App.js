@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-
-// Normalizes string as a slug - a string that is safe to use
-// in both URLs and html attributes
-import features from './Feature.js';
-import summary from './Summary.js'
-import total from './Total.js'
-import USCurrencyFormat from './USCurrencyFormat.js'
+import Features from './Feature.js';
+import Summary from './Summary.js'
+import Total from './Total.js'
 import './App.css';
 
+
+//selected = props
 class App extends Component {
     state = {
         selected: {
@@ -30,6 +28,11 @@ class App extends Component {
         }
     }
 
+    USCurrencyFormat = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD'
+    })
+
     updateFeature = (feature, newValue) => {
         const selected = Object.assign({}, this.state.selected);
         selected[feature] = newValue;
@@ -47,17 +50,17 @@ class App extends Component {
                 <main>
                     <form className="main__form">
                         <h2>Customize your laptop</h2> 
-                        {features} 
+                        {Features} 
                     </form>
                     <section className="main__summary">
                         <h2>Your cart</h2>
-                        {summary}
+                        {Summary}
                         <div className="summary__total">
                             <div className="summary__total__label">
                                 Total
                             </div>
                             <div className="summary__total__value">
-                                {USCurrencyFormat.format(total)}
+                                {USCurrencyFormat.format(Total)}
                             </div>
                         </div>
                     </section>
