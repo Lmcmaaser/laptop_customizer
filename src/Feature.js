@@ -4,8 +4,9 @@ import React from 'react'
 // in both URLs and html attributes
 import slugify from 'slugify';
 import './Feature.css'
+import { USCurrencyFormat } from './USCurrencyFormat.js'
 
-class features extends React.Component {
+class Features extends React.Component {
   render() {
     const features = Object.keys(this.props.Features).map((feature, idx) => {
       const featureHash = feature + '-' + idx;
@@ -39,4 +40,4 @@ class features extends React.Component {
   }
 }
 
-export default features;
+export default Features;

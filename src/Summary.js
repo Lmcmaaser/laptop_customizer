@@ -1,10 +1,11 @@
 import React from 'react'
 import './Summary.css'
+import { USCurrencyFormat } from './USCurrencyFormat.js'
 
 
 // you have a single thing you want to export, and each file can have one default export
 //class component
-export default function summary() {
+export default function Summary(props) {
   const summary = Object.keys(this.props.selected).map((feature, idx) => {
     const featureHash = feature + '-' + idx;
     const selectedOption = this.props.selected[feature];

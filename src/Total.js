@@ -1,13 +1,14 @@
 import React from 'react'
 import './Total.css'
+import { USCurrencyFormat } from './USCurrencyFormat.js'
 
-export default function total(props) {
+export default function Total(props) {
   const { selected } = props;
   const total = Object.keys(selected).reduce(
     (acc, curr) => acc + this.state.selected[curr].cost, 0)
   return (
     <div className= "summary__total__value">
-      {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(total)}
+      {USCurrencyFormat.format(total)}
     </div>
   )
 }
