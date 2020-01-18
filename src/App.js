@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { USCurrencyFormat } from './USCurrencyFormat.js'
 import Features from './Feature.js';
 import Summary from './Summary.js'
 import Total from './Total.js'
@@ -6,7 +7,7 @@ import './App.css';
 
 
 //selected = props
-class App extends Component {
+class App extends React.Component {
     state = {
         selected: {
             Processor: {

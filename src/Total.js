@@ -1,5 +1,5 @@
 import React from 'react'
-import './Total.css'
+//import './Total.css'
 import { USCurrencyFormat } from './USCurrencyFormat.js'
 
 export default function Total(props) {
