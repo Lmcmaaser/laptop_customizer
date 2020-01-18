@@ -28,11 +28,6 @@ class App extends Component {
         }
     }
 
-    USCurrencyFormat = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD'
-    })
-
     updateFeature = (feature, newValue) => {
         const selected = Object.assign({}, this.state.selected);
         selected[feature] = newValue;
