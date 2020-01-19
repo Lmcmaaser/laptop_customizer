@@ -31,7 +31,7 @@ class Summary extends React.Component {
       <>
         <section className="main__summary">
           <h2>Your cart</h2>
-          {Summary}
+          <Summary />
           <div className="summary__total">
             <div className="summary__total__label">
               Total
