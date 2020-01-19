@@ -10,5 +10,5 @@ export default function Total(props) {
     <div className= "summary__total__value">
       {USCurrencyFormat.format(total)}
     </div>
-  )
-}
+  );
+};

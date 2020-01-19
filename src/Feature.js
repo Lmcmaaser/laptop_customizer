@@ -38,7 +38,7 @@ class Features extends React.Component {
       )
     })
   }
-  render () {
+  render () { //render() is executed every time state changes
     return (
       <>
         <form className="main__form">

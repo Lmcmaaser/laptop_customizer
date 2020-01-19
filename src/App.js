@@ -46,11 +46,11 @@ class App extends React.Component {
                 <main>
                     <form className="main__form">
                         <h2>Customize your laptop</h2> 
-                        {Features} 
+                        <Features /> 
                     </form>
                     <section className="main__summary">
                         <h2>Your cart</h2>
-                        {Summary}
+                        <Summary />
                         <div className="summary__total">
                             <div className="summary__total__label">
                                 Total
