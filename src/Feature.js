@@ -5,13 +5,13 @@ import React from 'react'
 import slugify from 'slugify';
 import './Feature.css'
 import { USCurrencyFormat } from './USCurrencyFormat.js'
-import Options from './Options.js'
 
-class Features extends React.Component {
+class Feature extends React.Component {
   render () { //render() is executed every time state changes
     console.log('Using Features class component!')
     console.log(this.props)
-    const itemHash = slugify(JSON.stringify(item));
+    
+    const itemHash = slugify(JSON.stringify(item)); //where do I get item from? the options file?
     return (
       <div key={itemHash} className="feature__item">
         <input
@@ -20,7 +20,7 @@ class Features extends React.Component {
           className="feature__option"
           name={slugify(feature)}
           checked={item.name === this.props.selected[feature].name}
-          onChange={e => this.updateFeature(feature, item)}
+          onChange={e => this.updateFeature(feature, item)}  //what do I do about e?
         />
         <label htmlFor={itemHash} className="feature__label">
           {item.name} ({USCurrencyFormat.format(item.cost)})
@@ -30,4 +30,4 @@ class Features extends React.Component {
   };
 }
 
-export default Features;
+export default Feature;

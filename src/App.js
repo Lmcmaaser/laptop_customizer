@@ -1,6 +1,6 @@
 import React from 'react';
 import { USCurrencyFormat } from './USCurrencyFormat.js'
-import Features from './Feature.js';
+import Feature from './Feature.js';
 import Options from './Options.js'
 import Summary from './Summary.js'
 import Total from './Total.js'
@@ -39,6 +39,7 @@ class App extends React.Component {
     };
 
     render() {
+        console.log(this.props.features)
         return (
             <div className="App">
                 <header>
@@ -47,8 +48,9 @@ class App extends React.Component {
                 <main>
                     <form className="main__form">
                         <h2>Customize your laptop</h2> 
-                        <Features 
-                            onupdateFeature={this.updateFeature}
+                        <Feature
+                            features={this.props.features}
+                            onupdateFeature={this.updateFeature} //onChange?
                         /> 
                     </form>
                     <section className="main__summary">
