@@ -1,6 +1,7 @@
 import React from 'react';
 import { USCurrencyFormat } from './USCurrencyFormat.js'
 import Features from './Feature.js';
+import Options from './Options.js'
 import Summary from './Summary.js'
 import Total from './Total.js'
 import './App.css';
