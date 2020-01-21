@@ -1,14 +1,18 @@
-import React from 'react';
-import { USCurrencyFormat } from './USCurrencyFormat.js'
-import Feature from './Feature.js';
-import Options from './Options.js'
-import Summary from './Summary.js'
-import Total from './Total.js'
+import React, { Component } from 'react';
+
+// Normalizes string as a slug - a string that is safe to use
+// in both URLs and html attributes
+import MainForm from './MainForm.js'
 import './App.css';
 
+// This object will allow us to
+// easily convert numbers into US dollar values
+const USCurrencyFormat = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD'
+});
 
-//selected = props
-class App extends React.Component {
+class App extends Component {
     state = {
         selected: {
             Processor: {
@@ -28,46 +32,61 @@ class App extends React.Component {
               cost: 1500
             }
         }
-    }
+    };
 
     updateFeature = (feature, newValue) => {
         const selected = Object.assign({}, this.state.selected);
         selected[feature] = newValue;
         this.setState({
-          selected
+            selected
         });
     };
 
-    render() {
-        console.log(this.props.features)
+    render () {
+        const summary = Object.keys(this.state.selected).map((feature, idx) => {
+            const featureHash = feature + '-' + idx;
+            const selectedOption = this.state.selected[feature];
+            return (
+                <div className="summary__option" key={featureHash}>
+                  <div className="summary__option__label">{feature} </div>
+                  <div className="summary__option__value">{selectedOption.name}</div>
+                  <div className="summary__option__cost">
+                    {USCurrencyFormat.format(selectedOption.cost)}
+                  </div>
+                </div>
+            ); 
+        });
+
+        const total = Object.keys(this.state.selected).reduce(
+            (acc, curr) => acc + this.state.selected[curr].cost,
+            0
+        );
+
         return (
             <div className="App">
-                <header>
-                    <h1>ELF Computing | Laptops</h1>
-                </header>
-                <main>
-                    <form className="main__form">
-                        <h2>Customize your laptop</h2> 
-                        <Feature
-                            features={this.props.features}
-                            onupdateFeature={this.updateFeature} //onChange?
-                        /> 
-                    </form>
-                    <section className="main__summary">
-                        <h2>Your cart</h2>
-                        <Summary />
-                        <div className="summary__total">
-                            <div className="summary__total__label">
-                                Total
-                            </div>
-                            <div className="summary__total__value">
-                                {USCurrencyFormat.format(Total)}
-                            </div>
-                        </div>
-                    </section>
-                </main>
+              <header>
+                <h1>ELF Computing | Laptops</h1>
+              </header>
+              <main>
+                <MainForm
+                    USCurrencyFormat={USCurrencyFormat}
+                  selected={this.state.selected}
+                  features={this.props.features}
+                />
+                <section className="main__summary">
+                  <h2>Your cart</h2>
+                  {summary}
+                  <div className="summary__total">
+                    <div className="summary__total__label">Total</div>
+                    <div className="summary__total__value">
+                      {USCurrencyFormat.format(total)}
+                    </div>
+                  </div>
+                </section>
+              </main>
             </div>
-        )
+        );
     }
 }
+
 export default App;
