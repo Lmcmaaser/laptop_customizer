@@ -15,7 +15,7 @@ class MainForm extends React.Component {
           selected
         });
     };
-    
+
     render() {
         const features = Object.keys(this.props.features).map((feature, idx) => {
             const featureHash = feature + '-' + idx;
@@ -29,7 +29,7 @@ class MainForm extends React.Component {
                         className="feature__option"
                         name={slugify(feature)}
                         checked={item.name === this.props.selected[feature].name}
-                        onChange={e => this.updateFeature(feature, item)} //onChange allows us to listen to an input’s change in value 
+                        onChange={e => this.props.updateFeature(feature, item)} //onChange allows us to listen to an input’s change in value 
                       />
                       <label htmlFor={itemHash} className="feature__label">
                         {item.name} ({USCurrencyFormat.format(item.cost)})
