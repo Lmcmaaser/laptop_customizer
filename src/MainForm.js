@@ -1,5 +1,8 @@
 import React from 'react';
+// Normalizes string as a slug - a string that is safe to use
+// in both URLs and html attributes
 import slugify from 'slugify';
+import { USCurrencyFormat } from './USCurrencyFormat'
 
 class MainForm extends React.Component {
     render() {
@@ -15,7 +18,7 @@ class MainForm extends React.Component {
                         className="feature__option"
                         name={slugify(feature)}
                         checked={item.name === this.props.selected[feature].name}
-                        onChange={e => this.updateFeature(feature, item)}
+                        onChange={e => this.updateFeature(feature, item)} //onChange allows us to listen to an input’s change in value 
                       />
                       <label htmlFor={itemHash} className="feature__label">
                         {item.name} ({USCurrencyFormat.format(item.cost)})
