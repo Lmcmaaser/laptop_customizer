@@ -56,7 +56,8 @@ class App extends Component {
                         updateFeature={this.updateFeature}  
                     />
                     <Summary 
-                        selected={this.selected}
+                        selected={this.state.selected}
+                        summary={this.props.summary}
                     />
                 </main>
             </div>
