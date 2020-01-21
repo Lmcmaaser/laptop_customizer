@@ -53,7 +53,7 @@ class App extends Component {
                     <MainForm
                         selected={this.state.selected}
                         features={this.props.features}
-                        updateFeature={this.props.updateFeature}  
+                        updateFeature={this.updateFeature}  
                     />
                     <Summary 
                         selected={this.selected}
