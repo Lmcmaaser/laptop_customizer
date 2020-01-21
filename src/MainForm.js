@@ -6,13 +6,13 @@ import { USCurrencyFormat } from './USCurrencyFormat'
 
 
 class MainForm extends React.Component {
-    updateFeature = (feature, newValue) => {
-        const selected = Object.assign({}, this.state.selected);
+    /*updateFeature = (feature, newValue) => {
+        const selected = Object.assign({}, this.props.selected);
         selected[feature] = newValue;
         this.setState({
             selected
         });
-    };
+    };*/
     render() {
         const features = Object.keys(this.props.features).map((feature, idx) => {
             const featureHash = feature + '-' + idx;
