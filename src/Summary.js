@@ -25,7 +25,7 @@ class Summary extends React.Component {
                     <h2>Your cart</h2>
                     {summary}
                     <Total
-                        selected={this.state.selected}
+                        selected={this.props.selected}
                         summary={this.props.summary}
                         total={this.props.total}
                     />
