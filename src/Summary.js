@@ -1,5 +1,6 @@
 import React from 'react'
 import { USCurrencyFormat } from './USCurrencyFormat'
+import './Summary.css'
 
 class Summary extends React.Component {
     render () {
