@@ -26,7 +26,8 @@ class Summary extends React.Component {
                     {summary}
                     <Total
                         selected={this.state.selected}
-                        total={this.props.summary}
+                        summary={this.props.summary}
+                        total={this.props.total}
                     />
                 </section>
             </>

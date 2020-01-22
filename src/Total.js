@@ -1,4 +1,5 @@
 import React from 'react'
+import { USCurrencyFormat } from './USCurrencyFormat'
 
 class Total extends React.Component {
     render () {
@@ -18,3 +19,5 @@ class Total extends React.Component {
         )
     }
 }
+
+export default Total;
