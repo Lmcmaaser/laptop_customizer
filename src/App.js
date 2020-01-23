@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import { USCurrencyFormat } from './USCurrencyFormat'
+import Header from './Header.js'
 import Summary from './Summary.js'
 import MainForm from './MainForm.js'
 import './App.css';
@@ -47,18 +47,17 @@ class App extends Component {
         return (
             <div className="App">
                 <header>
-                    <h1>ELF Computing | Laptops</h1>
+                    <Header/>
                 </header>
                 <main>
                     <MainForm
-                        selected={this.state.selected}
-                        features={this.props.features}
-                        updateFeature={this.updateFeature}  
+                      selected={this.state.selected}
+                      features={this.props.features}
+                      updateFeature={this.updateFeature}  
                     />
                     <Summary 
-                        selected={this.state.selected}
-                        summary={this.props.summary}
-                        //features={this.props.features}
+                      selected={this.state.selected}
+                      summary={this.props.summary}
                     />
                 </main>
             </div>
